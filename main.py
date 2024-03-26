@@ -8,11 +8,10 @@ from model import  *
 import torch.optim as optim
 import torch.nn as nn
 from torch_geometric.nn import Node2Vec
-from learn import train, eval, evaltrain, evaltrain2
+from learn import *
 import math
 from sentence_transformers import SentenceTransformer
 import time
-import wandb
 import numpy as np
 from sklearn.manifold import TSNE
 import warnings
@@ -44,24 +43,7 @@ def run(data, loaders, model, classifier, optimizer, loss_fn, train_edge0, train
     model.load_state_dict(torch.load(f'./model/{args.dataset}/best_model.pt'))
     classifier.load_state_dict(torch.load(f'./model/{args.dataset}/best_classifier.pt'))
     
-    # y_true, y_predict, y_pro, entropy = evaltrain(data, model, classifier, loaders['train'], train_edge, args)
-    # plot1(y_true, y_predict, y_pro, entropy, args)
-    # plot_classification_results(y_true, y_predict, entropy, args)
-    # plot_results(y_true, y_predict, entropy, args)
-    
-    # y_true, y_pred, y_pro, all, label, entro = evaltrain2(data, model, classifier, loaders['val'], train_edge, args)
-    # plot_edge(y_true, y_pred, all, label, entro)
-    
     test_acc, bacc, f1, f1_macro, f1_micro, cm, y_true, y_pred = eval(data, model, classifier, loaders['test'], train_edge, args) #train_val_edge
-    # class_acc = class_wise_accuracy(y_true, y_pred)
-    # print(class_acc[0], class_acc[1])
-    # f1_class = class_f1(cm)
-    # print(f1_class[0], f1_class[1], f1_class[0]-f1_class[1])
-    
-    # end = time.time()
-    # print('Time: {:.4f},  Best epoch: {}, Test Accuracy: {:.4f}, Balanced Accuracy: {:.4f}, F1: {:.4f}, F1 Macro: {:.4f}, F1 Micro: {:.4f}'\
-    #     .format(end-start, int(best_epoch), test_acc, bacc, f1, f1_macro, f1_micro))
-    # print(confusion_matrix)
     return test_acc, bacc, f1, f1_macro, f1_micro
 
 
@@ -76,7 +58,6 @@ if __name__ == '__main__':
     encoder = SentenceTransformer('all-MiniLM-L6-v2', device = args.device)
 
     data = load_dataset(args, encoder)
-    # print(get_unique_counts(data.y))
     edge_idxs = split_edge(data, args.train_ratio, args.val_ratio)
 
     res=[]
@@ -90,36 +71,6 @@ if __name__ == '__main__':
     train_y = data.y[edge_idxs['train']]
     test_y = data.y[edge_idxs['test']]
     val_y = data.y[edge_idxs['val']]
-    
-    # ExtWF
-    # num_classes = int(torch.unique(data.y).shape[0])    
-    # num_nodes = data.num_nodes
-    # k=1
-    # top_k_similar = compute_similarity(data.edge_index[:, edge_idxs['train']], train_y, num_classes, num_nodes, k)
-    # bac, f1 = edge_classification_and_metrics(
-    #     data.edge_index[:, edge_idxs['train']], train_y, data.edge_index[:, edge_idxs['test']], test_y, top_k_similar, k, num_classes, num_nodes)
-    # print(bac, f1)
-    
-    # _,_,args.entropy= cal_topo_reweight(data.edge_index[:, edge_idxs['train']], train_y.view(-1), args)
-    # one_sim(data.edge_index[:, edge_idxs['train']], train_y.view(-1))
-    # result, first, second = bimean_encoding(data, edge_idxs, train_y, 1000, args)
-    # # densityplt(result)
-    # res = mc(data, edge_idxs, train_y, 1000, args)
-    # densityplt(res)
-    # args.entropy= ge_reweight(data.edge_index[:, edge_idxs['train']], train_y.view(-1), first, second, args)
-    # args.entropy= ge_reweight(data.edge_index[:, edge_idxs['train']], train_y.view(-1), args)
-    
-    # head, tail, args.entropy = cal_topo_reweight(data.edge_index[:, edge_idxs['train']], train_y.view(-1), args)
-    # args.en1, args.en2, args.lab = ge_post(head, tail, 0.65)
-    # el_ra = el_ratio(data.edge_index[:, edge_idxs['val']], val_y.view(-1))
-    # # el_ra = el_ratio(data.edge_index[:, edge_idxs['train']], train_y.view(-1))
-    # args.entropy, args.lab = quan_post(el_ra, 0.65)
-    
-    # # # # eh = edge_homophily(data.edge_index, data.y.view(-1))
-    # # # # print(eh)
-    # # # # args.entropy= cal_topo_reweight(data.edge_index, data.y.view(-1))
-    # # # # Get topology imbalance ratio
-    # # # # topo_imb_ratio(data)
 
     # # # # topology reweight
     num_classes = int(torch.unique(data.y).shape[0])
@@ -164,8 +115,6 @@ if __name__ == '__main__':
         classifier = Classifier(args.n_hidden, data.edge_attr.shape[1], torch.unique(data.y).shape[0], args.dropout).to(args.device)
         optimizer = torch.optim.Adam(list(model.parameters()) + list(classifier.parameters()), lr=args.lr)
             
-        # run(data, loaders, model, classifier, optimizer, loss_fn, train_edge0, train_edge, args)
-        
         test_acc, bacc, f1, f1_macro, f1_micro=run(data, loaders, model, classifier, optimizer, loss_fn, train_edge0, train_edge, args)
         
         result = {}   # Initialize an empty dictionary for this run's results

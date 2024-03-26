@@ -45,7 +45,12 @@ def extract_tar_gz(input_filename):
         
 def get_data(args):
     # Ensure the dataset directory exists
-    os.makedirs('./dataset', exist_ok=True)
+    dataset_dir = f'./dataset'
+    os.makedirs(dataset_dir, exist_ok=True)
+
+    # Ensure the model directory exists for the specific dataset
+    model_dir = f'./model/{args.dataset}'
+    os.makedirs(model_dir, exist_ok=True)
 
     # Mapping datasets to their URLs
     dataset_urls = {

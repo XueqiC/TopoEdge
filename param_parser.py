@@ -22,14 +22,14 @@ def parse_args():
     parser.add_argument('--seed', type=int, default=1028)
     parser.add_argument('--runs', type=int, default=3)
 
-    parser.add_argument('--method', type=str, default='tq', 
+    parser.add_argument('--method', type=str, default='none', 
                         help='choose from [none, qw, tw, tq]')
     
     parser.add_argument('--n', type=int, default=1, help='number of hop')
     parser.add_argument('--T', type=float, default=0.5, help='temperature of reweight')
     parser.add_argument('--f', type=float, default=0.0001, help='Influence of topological reweight in loss')
     
-    parser.add_argument('--mixup', type=int, default=2, help='0: none, 1: topo k fix-mixup, 2: topo k random mixup')
+    parser.add_argument('--mixup', type=int, default=0, help='0: none, 1: topo k fix-mixup, 2: topo k random mixup')
     parser.add_argument('--alpha', type=float, default=4.0, help = 'mixup alpha hyperparamter')
     parser.add_argument('--k', type=float, default=0, help='topo k hyperparamter in mixup')
     parser.add_argument('--h', type=float, default=0, help = 'mixup loss factor')
