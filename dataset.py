@@ -52,15 +52,6 @@ def get_data(args):
     model_dir = f'./model/{args.dataset}'
     os.makedirs(model_dir, exist_ok=True)
 
-    # Mapping datasets to their URLs
-    dataset_urls = {
-        'bitcoin_alpha': 'https://www.dropbox.com/scl/fi/yuv4gyjqk9d4x4ei3ggxe/bitcoin_alpha.csv?rlkey=qtm73sina1dcpsp26szdn84zy&dl=1',
-        'intrusion': 'https://www.dropbox.com/scl/fi/7mv7xd2ho1yaabqvuztu1/Intrusion.csv?rlkey=057nctugp0zlfgufoahkw93wg&dl=1',
-        'ppi': 'https://www.dropbox.com/scl/fi/eydjw77ds7cc8woxy4l17/PPI.zip?rlkey=n4o5ivf0razxl58tn9r5wdeel&dl=1',
-        'epinions': 'https://www.dropbox.com/scl/fi/wdhv8oke8pi886sfp7878/epinions.zip?rlkey=9btv6udqxb0z7esp1mu39i5tm&dl=1',
-        'reddit':'https://www.dropbox.com/scl/fi/dgr6qqbwdq7jzwh27v8mn/reddit.zip?rlkey=0v4u1mxi9reyn5xkpt49pc9v4&dl=1'
-    }
-
     file_extension = ".zip" if args.dataset in ["epinions", "reddit", "ppi"] else ".csv"
     file_path = f"./dataset/{args.dataset}{file_extension}"
 
