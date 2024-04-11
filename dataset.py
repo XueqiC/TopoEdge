@@ -45,14 +45,13 @@ def extract_tar_gz(input_filename):
         
 def get_data(args):
     # Ensure the dataset directory exists
-    dataset_dir = f'./dataset'
-    os.makedirs(dataset_dir, exist_ok=True)
+    os.makedirs('./dataset', exist_ok=True)
 
-    # Ensure the model directory exists for the specific dataset
-    model_dir = f'./model/{args.dataset}'
-    os.makedirs(model_dir, exist_ok=True)
+    # Mapping datasets to their URLs, will make public when the paper is published:
+    # dataset_urls = {    }
+    
 
-    file_extension = ".zip" if args.dataset in ["epinions", "reddit", "ppi"] else ".csv"
+    file_extension = ".zip" if args.dataset in ["epinions", "reddit", "ppi", "mag"] else ".csv"
     file_path = f"./dataset/{args.dataset}{file_extension}"
 
     # Check if the dataset already exists
@@ -124,7 +123,7 @@ def load_dataset(args, encoder):
                 num_nodes = n_nodes, num_edges = n_edges, y = y)
     
     elif dataset == 'ppi':
-        datag = torch.load("dataset/ppi/PPI/ppi.pth", map_location="cpu")
+        datag = torch.load("./dataset/ppi/PPI/ppi.pth", map_location="cpu")
             
     elif dataset == 'epinions':
         datag = torch.load("./dataset/epinions/epinions/pyg_data.pth", map_location="cpu")
@@ -133,10 +132,16 @@ def load_dataset(args, encoder):
         
     elif dataset == 'reddit':
         datag = torch.load("./dataset/reddit/reddit/reddit.pth", map_location="cpu")
+        
+    elif dataset == 'mag':
+        datag = torch.load("./dataset/mag/MAG/mag.pth", map_location="cpu")
     
     return datag
 
-def split_edge(data, train_ratio, val_ratio):
+def split_edge(data, args):
+    train_ratio = args.train_ratio
+    val_ratio = args.val_ratio
+    label_ratio = args.label_ratio
     num_edges = data.num_edges
     
     # Create a permutation of all edges
@@ -147,7 +152,7 @@ def split_edge(data, train_ratio, val_ratio):
     train_size = int(num_edges * train_ratio)
     val_size = int(num_edges * val_ratio)
     
-    train_idx = perm[:train_size]
+    train_idx = perm[:int(train_size*label_ratio)]
     val_idx = perm[train_size:train_size + val_size]
     test_idx = perm[train_size + val_size:]
 

@@ -3,7 +3,7 @@ import argparse
 def parse_args():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, default='epinions', help='select from [bitcoin_alpha, intrusion, ppi, epinions, reddit]')
+    parser.add_argument('--dataset', type=str, default='epinions', help='select from [bitcoin_alpha, intrusion, ppi, epinions, reddit, mag]')
     parser.add_argument('--task', type=int, default=1, help='0: binary, 1: multi-class')    
     
     parser.add_argument('--train_ratio', type=float, default=0.2)
