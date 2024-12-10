@@ -1,4 +1,4 @@
-<h1 align="center"> Edge Classification on Graphs: New Directions in Topological Imbalance
+<h1 align="center"> Edge Classification on Graphs: New Directions in Topological Imbalance</h1>
 
   <p align="center">
     <a href='https://arxiv.org/abs/2406.11685'>
