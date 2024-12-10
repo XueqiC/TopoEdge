@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/PRs-Welcome-red) 
 
 ## Introduction
-Code for WSDM 2025 paper "[Edge Classification on Graphs: New Directions in Topological Imbalance](https://arxiv.org/abs/2406.11685)". All the dataset is available for download at [this link](https://drive.google.com/drive/folders/18FEYhYIbsuh932zpRcRNFpPCSesQ2LpK?usp=drive_link).
+Code for WSDM 2025 paper [Edge Classification on Graphs: New Directions in Topological Imbalance](https://arxiv.org/abs/2406.11685). All the dataset is available for download at [this link](https://drive.google.com/drive/folders/18FEYhYIbsuh932zpRcRNFpPCSesQ2LpK?usp=drive_link).
 
 
 ![Overview Figure](plot/framework.png)
