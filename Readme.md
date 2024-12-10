@@ -2,6 +2,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/XueqiC/TopoEdge) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/XueqiC/TopoEdge/blob/main/LICENSE)
 ![](https://img.shields.io/badge/PRs-Welcome-red) 
+[![DOI](https://doi.org/10.1145/3701551.3703518)](https://doi.org/10.1145/3701551.3703518)
 
 ## Introduction
 Code for WSDM 2025 paper [Edge Classification on Graphs: New Directions in Topological Imbalance](https://arxiv.org/abs/2406.11685). All the dataset is available for download at [this link](https://drive.google.com/drive/folders/18FEYhYIbsuh932zpRcRNFpPCSesQ2LpK?usp=drive_link).
