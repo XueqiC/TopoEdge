@@ -5,7 +5,7 @@ Code for WSDM 2025 paper "[Edge Classification on Graphs: New Directions in Topo
 
 
 ![Overview Figure](plot/framework.png)
-This study pioneers a comprehensive approach to edge classification. We identify a novel `Topological Imbalance Issue,' which arises from the skewed distribution of edges across different classes, affecting the local subgraph of each edge and harming the performance of edge classifications.
+This study pioneers a comprehensive approach to edge classification. We identify a novel **Topological Imbalance Issue**, which arises from the skewed distribution of edges across different classes, affecting the local subgraph of each edge and harming the performance of edge classifications.
 
 To overcome this challenge, we introduce **Topological Entropy** (TE), a novel topological-based metric that measures the topological imbalance for each edge. Our empirical studies confirm that TE effectively measures local class distribution variance, and indicate that prioritizing edges with high TE values can help address the issue of topological imbalance. 
 
