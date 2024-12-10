@@ -1,4 +1,5 @@
-# Edge Classification on Graphs: New Directions in Topological Imbalance
+<h1 align="center"> Edge Classification on Graphs: New Directions in Topological Imbalance
+
   <p align="center">
     <a href='https://arxiv.org/abs/2406.11685'>
       <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
