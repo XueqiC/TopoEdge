@@ -1,8 +1,12 @@
 # Edge Classification on Graphs: New Directions in Topological Imbalance
-[![Awesome](https://awesome.re/badge.svg)](https://github.com/XueqiC/TopoEdge) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/XueqiC/TopoEdge/blob/main/LICENSE)
-![](https://img.shields.io/badge/PRs-Welcome-red) 
-[![DOI](https://doi.org/10.1145/3701551.3703518)](https://doi.org/10.1145/3701551.3703518)
+  <p align="center">
+    <a href='https://arxiv.org/abs/2406.11685'>
+      <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
+    <a href='https://github.com/XueqiC/TopoEdge'>
+      <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'> </a>
+    <a href='https://github.com/XueqiC/TopoEdge/blob/main/LICENSE'>
+      <img src='https://img.shields.io/badge/License-MIT-green.svg' alt='MIT License'> </a>
+  </p>
 
 ## Introduction
 Code for WSDM 2025 paper [Edge Classification on Graphs: New Directions in Topological Imbalance](https://arxiv.org/abs/2406.11685). All the dataset is available for download at [this link](https://drive.google.com/drive/folders/18FEYhYIbsuh932zpRcRNFpPCSesQ2LpK?usp=drive_link).
