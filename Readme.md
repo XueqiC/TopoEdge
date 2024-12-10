@@ -21,8 +21,8 @@ Please feel free to email me (xueqi.cheng [AT] vanderbilt.edu) for any questions
 ## Citation
 ```
 @inproceedings{cheng2024edge,
-  author    ={Cheng, Xueqi and Wang, Yu and Liu, Yunchao and Zhao, Yuying and Aggarwal, Charu C and Derr, Tyler},
-  title     ={Edge Classification on Graphs: New Directions in Topological Imbalance},
+  author    = {Cheng, Xueqi and Wang, Yu and Liu, Yunchao and Zhao, Yuying and Aggarwal, Charu C and Derr, Tyler},
+  title     = {Edge Classification on Graphs: New Directions in Topological Imbalance},
   booktitle = {WSDM},
   year      = {2025}
 }
