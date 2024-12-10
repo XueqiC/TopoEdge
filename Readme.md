@@ -5,6 +5,8 @@
       <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
     <a href='https://github.com/XueqiC/TopoEdge'>
       <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'> </a>
+    <a href='https://drive.google.com/drive/folders/18FEYhYIbsuh932zpRcRNFpPCSesQ2LpK?usp=drive_link'>
+      <img src='https://img.shields.io/badge/Resource-Dataset-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Dataset'> </a>
     <a href='https://github.com/XueqiC/TopoEdge/blob/main/LICENSE'>
       <img src='https://img.shields.io/badge/License-MIT-green.svg' alt='MIT License'> </a>
   </p>
